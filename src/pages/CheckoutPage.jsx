@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { formatMoney } from '../utils/money';
 import './checkout-header.css'
 import './CheckoutPage.css'
+import { useNavigate } from 'react-router';
 
 export function CheckoutPage({ cart, loadCart }) {
 
@@ -22,6 +23,13 @@ export function CheckoutPage({ cart, loadCart }) {
                 setPaymentSummury(response.data);
             });
     }, [cart]);
+
+    const navigate = useNavigate();
+    const createOrder = async ()=>{
+        await axios.post('/api/orders');
+        await loadCart();
+        navigate('/orders')
+    };
 
     return (
         <>
@@ -182,7 +190,8 @@ export function CheckoutPage({ cart, loadCart }) {
                                     </div>
                                 </div>
 
-                                <button className="place-order-button button-primary">
+                                <button className="place-order-button button-primary"
+                                    onClick={createOrder}>
                                     Place your order
                                 </button>
                             </>
