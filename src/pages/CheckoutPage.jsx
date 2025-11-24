@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import { formatMoney } from '../utils/money';
 import './checkout-header.css'
 import './CheckoutPage.css'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export function CheckoutPage({ cart, loadCart }) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([]);
-    const [paymentSummary, setPaymentSummury] = useState(null);
+    const [paymentSummary, setPaymentSummary] = useState(null);
 
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export function CheckoutPage({ cart, loadCart }) {
 
         axios.get('/api/payment-summary')
             .then((response) => {
-                setPaymentSummury(response.data);
+                setPaymentSummary(response.data);
             });
     }, [cart]);
 
@@ -60,7 +60,7 @@ export function CheckoutPage({ cart, loadCart }) {
 
                 <div className="checkout-grid">
                     <div className="order-summary">
-                        {deliveryOptions.length > 0 && cart.map((cartItem) => {
+                        {deliveryOptions.length > 0 && (cart ?? []).map((cartItem) => {
 
                             const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
                                 return deliveryOption.id === cartItem.deliveryOptionId;
@@ -121,12 +121,12 @@ export function CheckoutPage({ cart, loadCart }) {
                                                 }
                                                 return (
                                                     <div key={deliveryOption.id} className="delivery-option"
-                                                        onClick={updateDeliveryOption}>
+                                                        >
                                                         <input type="radio"
                                                             checked={deliveryOption.id === cartItem.deliveryOptionId}
-                                                            onChange={()=>{}}
+                                                            onChange={updateDeliveryOption}
                                                             className="delivery-option-input"
-                                                            name={`"delivery-option-${cartItem.productId}"`} />
+                                                            name={`delivery-option-${cartItem.productId}`} />
                                                         <div>
                                                             <div className="delivery-option-date">
                                                                 {dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM, D')}
