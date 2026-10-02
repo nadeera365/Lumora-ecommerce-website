@@ -13,19 +13,21 @@ export function CheckoutPage({ cart, loadCart }) {
 
 
     useEffect(() => {
-        axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
-            .then((Response) => {
-                setDeliveryOptions(Response.data);
-            });
+        const fetchCheckoutData = async () => {
+            let response = await axios.get(
+                '/api/delivery-options?expand=estimatedDeliveryTime'
+            );
+            setDeliveryOptions(response.data);
 
-        axios.get('/api/payment-summary')
-            .then((response) => {
-                setPaymentSummary(response.data);
-            });
+            response = await axios.get('/api/payment-summary');
+            setPaymentSummary(response.data);
+        };
+
+        fetchCheckoutData();
     }, [cart]);
 
     const navigate = useNavigate();
-    const createOrder = async ()=>{
+    const createOrder = async () => {
         await axios.post('/api/orders');
         await loadCart();
         navigate('/orders')
@@ -60,13 +62,13 @@ export function CheckoutPage({ cart, loadCart }) {
 
                 <div className="checkout-grid">
                     <div className="order-summary">
-                        {deliveryOptions.length > 0 && (cart ?? []).map((cartItem) => {
+                        {deliveryOptions.length > 0 && cart.map((cartItem) => {
 
                             const selectedDeliveryOption = deliveryOptions.find((deliveryOption) => {
                                 return deliveryOption.id === cartItem.deliveryOptionId;
                             })
 
-                            const deleteCartItem = async ()=>{
+                            const deleteCartItem = async () => {
                                 await axios.delete(`/api/cart-items/${cartItem.productId}`);
                                 await loadCart();
                             }
@@ -113,15 +115,15 @@ export function CheckoutPage({ cart, loadCart }) {
                                                     priceString = `${formatMoney(deliveryOption.priceCents)} - Shipping`
                                                 }
 
-                                                const updateDeliveryOption = async ()=>{
-                                                    await axios.put(`/api/cart-items/${cartItem.productId}`,{
+                                                const updateDeliveryOption = async () => {
+                                                    await axios.put(`/api/cart-items/${cartItem.productId}`, {
                                                         deliveryOptionId: deliveryOption.id
                                                     })
                                                     await loadCart();
                                                 }
                                                 return (
                                                     <div key={deliveryOption.id} className="delivery-option"
-                                                        >
+                                                    >
                                                         <input type="radio"
                                                             checked={deliveryOption.id === cartItem.deliveryOptionId}
                                                             onChange={updateDeliveryOption}
