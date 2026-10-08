@@ -1,40 +1,37 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Header } from '../components/Header';
+import { Link, useSearchParams } from 'react-router-dom';
+import { HeroSlider } from '../components/HeroSlider';
+import { fetchProducts } from '../api/products';
 import './HomePage.css';
 import { Product } from './Product';
 
-
-export function HomePage({ cart, setCart }) {
-
+export function HomePage() {
   const [products, setProducts] = useState([]);
+  const [params] = useSearchParams();
+  const category = params.get('category');
+  const gender = params.get('gender');
+  const q = params.get('q') || '';
 
-  useEffect(() => {
-    axios.get('/api/products').then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
+  useEffect(() => { fetchProducts().then(setProducts); }, []);
 
-  async function loadCart() {
-    const response = await axios.get("/api/cart-items");
-    setCart(response.data);
-  }
+  const filtering = category || gender || q;
+  const shown = products.filter((p) =>
+    (!category || p.category === category) && (!gender || p.gender === gender) &&
+    (!q || p.name.toLowerCase().includes(q.toLowerCase())));
+  const title = q ? `Results for “${q}”` : category || (gender ? `${gender}’s collection` : 'Popular products');
 
   return (
     <>
       <title>Ecommerce Project</title>
-      <Header cart={cart} />
-
       <div className="home-page">
+        {!filtering && <HeroSlider />}
+        <h2 className="section-title">{title}</h2>
         <div className="products-grid">
-          {products.map((product) => (
-            <Product
-              key={product.id}
-              product={product}
-              loadCart={loadCart}
-            />
-          ))}
+          {shown.map((product) => <Product key={product.id} product={product} />)}
         </div>
+        {products.length > 0 && shown.length === 0 && (
+          <p>No products found. <Link to="/">See all products</Link></p>
+        )}
       </div>
     </>
   );

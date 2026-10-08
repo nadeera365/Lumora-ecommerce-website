@@ -1,4 +1,4 @@
-import { Header } from '../components/Header';
+import { useCart } from '../cart';
 import axios from 'axios';
 import './Orders.css'
 import { Fragment, useEffect, useState } from 'react';
@@ -6,19 +6,11 @@ import dayjs from 'dayjs';
 import { formatMoney } from '../utils/money';
 export function Orders({ cart }) {
 
-    const [orders, setOrders] = useState([]);
-
-    useEffect(() => {
-        axios.get('/api/orders?expand=products')
-            .then((response) => {
-                setOrders(response.data);
-            });
-    }, []);
+    const { orders } = useCart();
     return (
         <>
             <title>Orders</title>
 
-            <Header cart={cart} />
 
             <div className="orders-page">
                 <div className="page-title">Your Orders</div>
@@ -48,7 +40,7 @@ export function Orders({ cart }) {
 
                                 <div className="order-details-grid">
                                     {order.products.map((orderProduct) => {
-                                        return (<Fragment>
+                                        return (<Fragment key={orderProduct.product.id}>
                                             <div className="product-image-container">
                                                 <img src={orderProduct.product.image} />
                                             </div>
@@ -64,7 +56,7 @@ export function Orders({ cart }) {
                                                     Quantity: {orderProduct.quantity}
                                                 </div>
                                                 <button className="buy-again-button button-primary">
-                                                    <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                                                    <img className="buy-again-icon" src="/images/icons/buy-again.png" />
                                                     <span className="buy-again-message">Add to Cart</span>
                                                 </button>
                                             </div>
