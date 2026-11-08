@@ -1,97 +1,54 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, NavLink, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
-import productsData from './data/products.json'
+// App only decides which page shows on which URL. Look in /pages and /components for the real UI.
+import { Route, Routes } from 'react-router-dom'
 
-const money = c => `Rs. ${(c/100).toLocaleString('en-LK',{minimumFractionDigits:2})}`
-const img = p => `/${p.image}`
+import StoreLayout from './components/layout/StoreLayout'
+import AdminLayout from './components/layout/AdminLayout'
 
-function Header({count, search, setSearch, user}) {
-  return <><div className="topbar">Free islandwide delivery over Rs. 10,000 <span>•</span> Secure checkout <span>•</span> Easy returns</div>
-    <header className="header">
-      <Link to="/" className="brand"><span className="brandmark">L</span><span>LUMORA</span></Link>
-      <nav><NavLink to="/">Home</NavLink><NavLink to="/shop">Shop</NavLink><a href="/#categories">Categories</a><a href="/#featured">Featured</a></nav>
-      <div className="actions">
-        <label className="search"><span>⌕</span><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search products..." /></label>
-        {user ? <Link className="user-chip" to="/account">Hi, {user.name.split(' ')[0]}</Link> : <Link className="login-link" to="/login">Login</Link>}
-        <Link className="round-btn" to="/orders" aria-label="Orders">♡</Link>
-        <Link className="bag" to="/cart">Bag <b>{count}</b></Link>
-      </div>
-    </header>
-  </>
+import HomePage from './pages/HomePage'
+import ShopPage from './pages/ShopPage'
+import ProductPage from './pages/ProductPage'
+import CartPage from './pages/CartPage'
+import CheckoutPage from './pages/CheckoutPage'
+import OrdersPage from './pages/OrdersPage'
+import TrackingPage from './pages/TrackingPage'
+import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import AccountPage from './pages/AccountPage'
+
+import AdminLoginPage from './pages/admin/AdminLoginPage'
+import AdminDashboardPage from './pages/admin/AdminDashboardPage'
+import AdminProductsPage from './pages/admin/AdminProductsPage'
+import AdminOrdersPage from './pages/admin/AdminOrdersPage'
+import AdminCustomersPage from './pages/admin/AdminCustomersPage'
+
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<StoreLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="shop" element={<ShopPage />} />
+        <Route path="product/:id" element={<ProductPage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="checkout" element={<CheckoutPage />} />
+        <Route path="orders" element={<OrdersPage />} />
+        <Route path="tracking" element={<TrackingPage />} />
+      </Route>
+
+      <Route element={<StoreLayout withFooter={false} />}>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="account" element={<AccountPage />} />
+      </Route>
+
+      <Route path="admin/login" element={<AdminLoginPage />} />
+      <Route path="admin" element={<AdminLayout />}>
+        <Route index element={<AdminDashboardPage />} />
+        <Route path="products" element={<AdminProductsPage />} />
+        <Route path="orders" element={<AdminOrdersPage />} />
+        <Route path="customers" element={<AdminCustomersPage />} />
+      </Route>
+    </Routes>
+  )
 }
-
-function HeroSlider(){
-  const slides=[
-    {ey:"NEW SEASON · 2026",title:"Simple pieces.",accent:"Better living.",text:"Curated fashion, footwear and everyday essentials designed to make daily style feel effortless.",image:"/images/products/women-striped-beach-dress.jpg",cta:"Shop women"},
-    {ey:"ESSENTIALS EDIT",title:"Everyday.",accent:"Elevated.",text:"Modern staples, practical home pieces and thoughtful details for your everyday.",image:"/images/products/men-stretch-wool-sweater-black.jpg",cta:"Explore collection"},
-    {ey:"HOME COLLECTION",title:"Make room.",accent:"For better days.",text:"Clean, useful pieces selected to bring comfort and character into your home.",image:"/images/products/elegant-white-dinner-plate-set.jpg",cta:"Shop home"}
-  ]
-  const [i,setI]=useState(0)
-  useEffect(()=>{const t=setInterval(()=>setI(x=>(x+1)%slides.length),5000);return()=>clearInterval(t)},[])
-  const s=slides[i]
-  return <section className="hero-slider"><div className="hero-copy"><span className="eyebrow">{s.ey}</span><h1>{s.title}<br/><em>{s.accent}</em></h1><p>{s.text}</p><Link className="primary" to="/shop">{s.cta} <span>→</span></Link><div className="slider-nav"><button onClick={()=>setI((i-1+slides.length)%slides.length)}>←</button><span>{String(i+1).padStart(2,'0')} / {String(slides.length).padStart(2,'0')}</span><button onClick={()=>setI((i+1)%slides.length)}>→</button></div></div><div className="hero-image"><img src={s.image} alt={s.title}/><div className="hero-label">LUMORA<br/><small>CURATED EVERYDAY</small></div></div></section>
-}
-
-function Footer(){return <footer><div className="footer-grid"><div><Link className="brand" to="/"><span className="brandmark">L</span>LUMORA</Link><p>Thoughtful essentials for everyday living.</p></div><div><h4>Shop</h4><Link to="/shop">All products</Link><Link to="/shop?gender=Women">Women</Link><Link to="/shop?gender=Men">Men</Link></div><div><h4>Help</h4><Link to="/orders">Orders & tracking</Link><Link to="/account">My account</Link><a href="#">Delivery</a><a href="#">Returns</a></div><div><h4>Stay in the loop</h4><p>New drops, offers and inspiration.</p><div className="newsletter"><input placeholder="Your email"/><button>Join</button></div></div></div><div className="footer-bottom">© 2026 LUMORA. All rights reserved.</div></footer>}
-
-function ProductCard({p,add}){const [ok,setOk]=useState(false);return <article className="product-card"><Link to={`/product/${p.id}`} className="product-img"><img src={img(p)} alt={p.name}/><span>{p.stock<10?'Low stock':'In stock'}</span><button onClick={e=>e.preventDefault()}>♡</button></Link><div className="product-info"><small>{p.category}</small><Link to={`/product/${p.id}`} className="product-name">{p.name}</Link><div className="rating">★★★★★ <i>({p.rating.count})</i></div><div className="product-row"><strong>{money(p.priceCents)}</strong><button className="add" onClick={()=>{add(p);setOk(true);setTimeout(()=>setOk(false),900)}}>{ok?'Added ✓':'+ Add'}</button></div></div></article>}
-
-function Home({products,add,search}){const cats=[...new Set(products.map(p=>p.category))];const filtered=products.filter(p=>p.name.toLowerCase().includes(search.toLowerCase())).slice(0,8);return <><HeroSlider/><section id="categories" className="section"><div className="section-head"><div><span className="eyebrow">SHOP BY</span><h2>Find your everyday</h2></div><Link to="/shop">View all →</Link></div><div className="cat-grid">{cats.slice(0,4).map((c,i)=><Link to="/shop" className="cat" key={c}><span>0{i+1}</span><h3>{c}</h3><small>{products.filter(p=>p.category===c).length} products</small><b>→</b></Link>)}</div></section><section id="featured" className="section"><div className="section-head"><div><span className="eyebrow">CURATED FOR YOU</span><h2>Featured collection</h2></div><Link to="/shop">Shop all →</Link></div><div className="product-grid">{filtered.map(p=><ProductCard key={p.id} p={p} add={add}/>)}</div></section><div className="trust"><div><b>01</b><span><strong>Secure checkout</strong><small>Protected payment flow</small></span></div><div><b>02</b><span><strong>Islandwide delivery</strong><small>Carefully packed orders</small></span></div><div><b>03</b><span><strong>Easy returns</strong><small>Friendly support</small></span></div></div></>}
-
-function Shop({products,add,search}){const [cat,setCat]=useState('All'),[gender,setGender]=useState('All'),[sort,setSort]=useState('featured');const cats=['All',...new Set(products.map(p=>p.category))];const list=useMemo(()=>products.filter(p=>(cat==='All'||p.category===cat)&&(gender==='All'||p.gender===gender)&&p.name.toLowerCase().includes(search.toLowerCase())).sort((a,b)=>sort==='low'?a.priceCents-b.priceCents:sort==='high'?b.priceCents-a.priceCents:b.rating.count-a.rating.count),[products,cat,gender,search,sort]);return <main className="section shop-page"><div className="page-head"><span className="eyebrow">THE COLLECTION</span><h1>Shop everything</h1><p>Find considered pieces for every part of your day.</p></div><div className="toolbar"><div>{['All','Men','Women','Unisex'].map(x=><button className={gender===x?'active':''} onClick={()=>setGender(x)} key={x}>{x}</button>)}</div><div><select value={cat} onChange={e=>setCat(e.target.value)}>{cats.map(x=><option key={x}>{x}</option>)}</select><select value={sort} onChange={e=>setSort(e.target.value)}><option value="featured">Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select></div></div><p className="muted">{list.length} products</p><div className="product-grid">{list.map(p=><ProductCard key={p.id} p={p} add={add}/>)}</div></main>}
-
-function ProductPage({products,add}){const {id}=useParams(),p=products.find(x=>x.id===id);const [q,setQ]=useState(1);if(!p)return <main className="empty"><h2>Product not found</h2><Link to="/shop">Back to shop</Link></main>;return <main className="section detail"><Link to="/shop" className="back">← Back to collection</Link><div className="detail-grid"><div className="detail-photo"><img src={img(p)} alt={p.name}/></div><div><span className="eyebrow">{p.category} · {p.gender}</span><h1>{p.name}</h1><div className="rating">★★★★★ <i>{p.rating.count} reviews</i></div><div className="detail-price">{money(p.priceCents)}</div><p className="desc">{p.description}</p><div className="stock">● {p.stock>10?'In stock — ready to ship':`${p.stock} left in stock`}</div><div className="buy-row"><div className="qty"><button onClick={()=>setQ(Math.max(1,q-1))}>−</button><b>{q}</b><button onClick={()=>setQ(Math.min(10,q+1))}>+</button></div><button className="primary large" onClick={()=>add(p,q)}>Add to bag →</button></div><div className="notes">✓ Quality checked　 ✓ Secure packaging　 ✓ Easy returns</div></div></div></main>}
-
-function Cart({cart,update,remove}){const sub=cart.reduce((s,x)=>s+x.product.priceCents*x.qty,0),ship=sub>=100000?0:790;return <main className="section"><div className="section-head"><div><span className="eyebrow">YOUR BAG</span><h1>Shopping cart</h1></div><span className="muted">{cart.reduce((s,x)=>s+x.qty,0)} items</span></div>{!cart.length?<div className="empty"><h2>Your bag is waiting.</h2><Link className="primary" to="/shop">Continue shopping</Link></div>:<div className="cart-grid"><div>{cart.map(x=><div className="cart-item" key={x.product.id}><img src={img(x.product)}/><div><small>{x.product.category}</small><h3>{x.product.name}</h3><b>{money(x.product.priceCents)}</b><div className="cart-controls"><div className="qty"><button onClick={()=>update(x.product.id,x.qty-1)}>−</button><b>{x.qty}</b><button onClick={()=>update(x.product.id,x.qty+1)}>+</button></div><button onClick={()=>remove(x.product.id)} className="text-btn">Remove</button></div></div><strong>{money(x.product.priceCents*x.qty)}</strong></div>)}</div><aside className="summary"><span className="eyebrow">ORDER SUMMARY</span><div><span>Subtotal</span><b>{money(sub)}</b></div><div><span>Delivery</span><b>{ship?money(ship):'FREE'}</b></div><hr/><div className="total"><span>Total</span><b>{money(sub+ship)}</b></div><Link className="primary full" to="/checkout">Continue to checkout →</Link></aside></div>}</main>}
-
-function Checkout({cart,clear}){const nav=useNavigate(),sub=cart.reduce((s,x)=>s+x.product.priceCents*x.qty,0),ship=sub>=100000?0:790;const [form,setForm]=useState({name:'',email:'',phone:'',address:'',city:''});if(!cart.length)return <Navigate to="/cart"/>;const submit=e=>{e.preventDefault();localStorage.setItem('lumora_last_order',JSON.stringify({id:'LM-'+Date.now().toString().slice(-7),items:cart,total:sub+ship,status:'Pending'}));clear();nav('/orders')};return <main className="section checkout"><Link to="/cart" className="back">← Back to bag</Link><div className="checkout-grid"><form className="auth-card checkout-form" onSubmit={submit}><span className="eyebrow">CHECKOUT</span><h1>Almost yours.</h1><div className="fields"><label>Full name<input required value={form.name} onChange={e=>setForm({...form,name:e.target.value})}/></label><label>Email<input required type="email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/></label><label>Phone<input required value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/></label><label>Address<input required value={form.address} onChange={e=>setForm({...form,address:e.target.value})}/></label><label>City<input required value={form.city} onChange={e=>setForm({...form,city:e.target.value})}/></label></div><div className="payment-note">Payment method<br/><strong>PayHere / Online payment</strong><small>Gateway will be connected in the backend phase.</small></div><button className="primary large full">Place order →</button></form><aside className="summary"><span className="eyebrow">YOUR ORDER</span>{cart.map(x=><div className="mini" key={x.product.id}><img src={img(x.product)}/><span>{x.product.name}<small>Qty {x.qty}</small></span><b>{money(x.product.priceCents*x.qty)}</b></div>)}<hr/><div className="total"><span>Total</span><b>{money(sub+ship)}</b></div></aside></div></main>}
-
-function Login({onLogin}){const nav=useNavigate();const [email,setEmail]=useState(''),[pass,setPass]=useState('');const submit=e=>{e.preventDefault();const u={name:email.split('@')[0]||'Customer',email};localStorage.setItem('lumora_user',JSON.stringify(u));onLogin(u);nav('/')};return <Auth title="Welcome back" subtitle="Sign in to manage your orders and continue shopping." onSubmit={submit} fields={<><label>Email address<input required type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@example.com"/></label><label>Password<input required type="password" value={pass} onChange={e=>setPass(e.target.value)} placeholder="Your password"/></label></>} footer={<>Don't have an account? <Link to="/register">Create account</Link></>}/>}
-
-function Register({onLogin}){const nav=useNavigate();const [f,setF]=useState({name:'',email:'',pass:'',confirm:''});const submit=e=>{e.preventDefault();if(f.pass!==f.confirm)return alert('Passwords do not match');const u={name:f.name,email:f.email};localStorage.setItem('lumora_user',JSON.stringify(u));onLogin(u);nav('/account')};return <Auth title="Create your account" subtitle="Join LUMORA and keep your orders in one place." onSubmit={submit} fields={<><label>Full name<input required value={f.name} onChange={e=>setF({...f,name:e.target.value})}/></label><label>Email address<input required type="email" value={f.email} onChange={e=>setF({...f,email:e.target.value})}/></label><label>Password<input required type="password" value={f.pass} onChange={e=>setF({...f,pass:e.target.value})}/></label><label>Confirm password<input required type="password" value={f.confirm} onChange={e=>setF({...f,confirm:e.target.value})}/></label></>} footer={<>Already have an account? <Link to="/login">Login</Link></>}/>}
-
-function Auth({title,subtitle,fields,onSubmit,footer}){return <main className="auth-page"><div className="auth-card"><span className="eyebrow">LUMORA ACCOUNT</span><h1>{title}</h1><p>{subtitle}</p><form onSubmit={onSubmit} className="fields">{fields}<button className="primary large full">Continue →</button></form><div className="divider">or</div><p className="auth-footer">{footer}</p></div></main>}
-
-function Account({user,onLogout}){if(!user)return <Navigate to="/login"/>;return <main className="section account"><span className="eyebrow">MY ACCOUNT</span><h1>Hello, {user.name}.</h1><div className="account-grid"><Link to="/orders"><b>My orders</b><span>View and track purchases →</span></Link><Link to="/tracking"><b>Track order</b><span>Check delivery status →</span></Link><div><b>Account details</b><span>{user.email}</span></div><button onClick={onLogout}>Log out</button></div></main>}
-
-function Orders(){const o=JSON.parse(localStorage.getItem('lumora_last_order')||'null');return <main className="section"><span className="eyebrow">ACCOUNT</span><h1>Your orders</h1>{o?<div className="order-card"><div><span className="status">{o.status||'Processing'}</span><h3>Order #{o.id}</h3><p>{o.items.length} product(s) · {money(o.total)}</p></div><Link className="secondary" to="/tracking">Track order</Link></div>:<div className="empty"><h2>No orders yet.</h2><Link className="primary" to="/shop">Start shopping</Link></div>}</main>}
-
-function Tracking(){return <main className="section"><span className="eyebrow">ORDER TRACKING</span><h1>Where is your order?</h1><div className="track-search"><input placeholder="Enter order number"/><button className="primary">Track</button></div><div className="timeline">{['Order placed','Preparing','On the way','Delivered'].map((x,i)=><div className={i===0?'done':''} key={x}><b>{i===0?'✓':i+1}</b><span><strong>{x}</strong><small>{i===0?'Your order has been received':'We will update you as your order moves.'}</small></span></div>)}</div></main>}
-
-function Forgot(){return <Auth title="Reset your password" subtitle="Enter your email and we'll send reset instructions." onSubmit={e=>{e.preventDefault();alert('Reset link will be connected to the backend.')}} fields={<label>Email address<input required type="email" placeholder="you@example.com"/></label>} footer={<Link to="/login">← Back to login</Link>}/>}
-
-function AdminLogin({onAdmin}){const nav=useNavigate();const [email,setEmail]=useState('admin@lumora.lk'),[pass,setPass]=useState('');return <main className="admin-auth"><div className="admin-card"><span className="admin-logo">L</span><span className="eyebrow">PRIVATE ADMIN AREA</span><h1>Admin sign in</h1><p>This area is not linked from the customer storefront.</p><form onSubmit={e=>{e.preventDefault();localStorage.setItem('lumora_admin','true');onAdmin(true);nav('/admin')}} className="fields"><label>Email<input required value={email} onChange={e=>setEmail(e.target.value)}/></label><label>Password<input required type="password" value={pass} onChange={e=>setPass(e.target.value)}/></label><button className="admin-primary">Sign in to dashboard</button></form></div></main>}
-
-function AdminLayout({children,onLogout}){return <div className="admin-shell"><aside><Link className="admin-brand" to="/admin"><span>L</span>LUMORA ADMIN</Link><nav><NavLink to="/admin">Overview</NavLink><NavLink to="/admin/products">Products</NavLink><NavLink to="/admin/orders">Orders</NavLink><NavLink to="/admin/customers">Customers</NavLink></nav><button onClick={onLogout}>Log out</button></aside><div className="admin-main"><header><div><span className="eyebrow">CONTROL CENTER</span><h2>Store management</h2></div><Link to="/" className="secondary">View storefront</Link></header>{children}</div></div>}
-
-function AdminGuard({admin,children}){return admin?children:<Navigate to="/admin/login"/>}
-function AdminDashboard(){return <div className="dash"><div className="stats"><div><small>Revenue</small><strong>Rs. 248,500</strong><span>+12.4%</span></div><div><small>Orders</small><strong>128</strong><span>+8.2%</span></div><div><small>Customers</small><strong>842</strong><span>+15.1%</span></div><div><small>Products</small><strong>{productsData.length}</strong><span>Active catalog</span></div></div><div className="panel"><div className="panel-head"><h3>Recent orders</h3><Link to="/admin/orders">View all</Link></div>{['LM-8472911','LM-8472904','LM-8472898','LM-8472887'].map((x,i)=><div className="admin-row" key={x}><b>#{x}</b><span>{['Pending','Processing','Shipped','Delivered'][i]}</span><strong>Rs. {[12900,8900,24500,6200][i].toLocaleString()}</strong></div>)}</div></div>}
-function AdminProducts(){return <div className="panel"><div className="panel-head"><h3>Products</h3><button className="admin-primary small">+ Add product</button></div>{productsData.slice(0,10).map(p=><div className="admin-row product-admin" key={p.id}><img src={img(p)}/><b>{p.name}</b><span>{p.category}</span><strong>{money(p.priceCents)}</strong><button>Edit</button></div>)}</div>}
-function AdminOrders(){return <div className="panel"><div className="panel-head"><h3>Orders</h3></div>{['LM-8472911','LM-8472904','LM-8472898','LM-8472887','LM-8472870'].map((x,i)=><div className="admin-row" key={x}><b>#{x}</b><span>Customer {i+1}</span><span className="status">{['Pending','Processing','Shipped','Delivered','Pending'][i]}</span><strong>Rs. {(12900+i*3200).toLocaleString()}</strong></div>)}</div>}
-function AdminCustomers(){return <div className="panel"><div className="panel-head"><h3>Customers</h3></div>{['Amaya Perera','Kavindu Silva','Nethmi Fernando','Ruwan Jayasuriya','Sahan Wickramasinghe'].map((x,i)=><div className="admin-row" key={x}><b>{x}</b><span>{x.toLowerCase().replaceAll(' ','')}@email.com</span><span>{12-i} orders</span><strong>Active</strong></div>)}</div>}
-
-function App(){
- const [search,setSearch]=useState(''),[cart,setCart]=useState(()=>JSON.parse(localStorage.getItem('lumora_cart')||'[]')),[user,setUser]=useState(()=>JSON.parse(localStorage.getItem('lumora_user')||'null')),[admin,setAdmin]=useState(()=>localStorage.getItem('lumora_admin')==='true')
- useEffect(()=>localStorage.setItem('lumora_cart',JSON.stringify(cart)),[cart])
- const add=(p,q=1)=>setCart(c=>{const f=c.find(x=>x.product.id===p.id);return f?c.map(x=>x.product.id===p.id?{...x,qty:Math.min(10,x.qty+q)}:x):[...c,{product:p,qty:q}]})
- const update=(id,q)=>setCart(c=>q<1?c.filter(x=>x.product.id!==id):c.map(x=>x.product.id===id?{...x,qty:Math.min(10,q)}:x))
- const logout=()=>{localStorage.removeItem('lumora_user');setUser(null)}
- const adminLogout=()=>{localStorage.removeItem('lumora_admin');setAdmin(false)}
- const count=cart.reduce((s,x)=>s+x.qty,0)
- return <div className="app"><Header count={count} search={search} setSearch={setSearch} user={user}/><Routes>
-   <Route path="/" element={<><Home products={productsData} add={add} search={search}/><Footer/></>}/>
-   <Route path="/shop" element={<><Shop products={productsData} add={add} search={search}/><Footer/></>}/>
-   <Route path="/product/:id" element={<><ProductPage products={productsData} add={add}/><Footer/></>}/>
-   <Route path="/cart" element={<><Cart cart={cart} update={update} remove={id=>setCart(c=>c.filter(x=>x.product.id!==id))}/><Footer/></>}/>
-   <Route path="/checkout" element={<><Checkout cart={cart} clear={()=>setCart([])}/><Footer/></>}/>
-   <Route path="/login" element={<Login onLogin={setUser}/>}/>
-   <Route path="/register" element={<Register onLogin={setUser}/>}/>
-   <Route path="/forgot-password" element={<Forgot/>}/>
-   <Route path="/account" element={<Account user={user} onLogout={logout}/>}/>
-   <Route path="/orders" element={<><Orders/><Footer/></>}/>
-   <Route path="/tracking" element={<><Tracking/><Footer/></>}/>
-   <Route path="/admin/login" element={<AdminLogin onAdmin={setAdmin}/>}/>
-   <Route path="/admin/*" element={<AdminGuard admin={admin}><AdminLayout onLogout={adminLogout}><Routes><Route index element={<AdminDashboard/>}/><Route path="products" element={<AdminProducts/>}/><Route path="orders" element={<AdminOrders/>}/><Route path="customers" element={<AdminCustomers/>}/></Routes></AdminLayout></AdminGuard>}/>
- </Routes></div>
-}
-export default App

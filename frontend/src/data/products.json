@@ -1,332 +1,332 @@
 [
- {
-  "id": "adults-plain-cotton-tshirt-2-pack-teal",
-  "slug": "adults-plain-cotton-tshirt-2-pack-teal",
-  "name": "Adults Plain Cotton Tshirt 2 Pack Teal",
-  "image": "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-  "priceCents": 6990,
-  "category": "Clothing",
-  "rating": {
-   "stars": 3,
-   "count": 300
-  },
-  "stock": 45,
-  "gender": "Unisex",
-  "description": "Adults Plain Cotton Tshirt 2 Pack Teal: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "athletic-cotton-socks-6-pairs",
-  "slug": "athletic-cotton-socks-6-pairs",
-  "name": "Athletic Cotton Socks 6 Pairs",
-  "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
-  "priceCents": 2990,
-  "category": "Clothing",
-  "rating": {
-   "stars": 3,
-   "count": 320
-  },
-  "stock": 5,
-  "gender": "Unisex",
-  "description": "Athletic Cotton Socks 6 Pairs: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "athletic-skateboard-shoes-gray",
-  "slug": "athletic-skateboard-shoes-gray",
-  "name": "Athletic Skateboard Shoes Gray",
-  "image": "images/products/athletic-skateboard-shoes-gray.jpg",
-  "priceCents": 8090,
-  "category": "Footwear",
-  "rating": {
-   "stars": 3.5,
-   "count": 451
-  },
-  "stock": 16,
-  "gender": "Unisex",
-  "description": "Athletic Skateboard Shoes Gray: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "crystal-zirconia-stud-earrings-pink",
-  "slug": "crystal-zirconia-stud-earrings-pink",
-  "name": "Crystal Zirconia Stud Earrings Pink",
-  "image": "images/products/crystal-zirconia-stud-earrings-pink.jpg",
-  "priceCents": 7090,
-  "category": "Accessories",
-  "rating": {
-   "stars": 3.5,
-   "count": 381
-  },
-  "stock": 6,
-  "gender": "Unisex",
-  "description": "Crystal Zirconia Stud Earrings Pink: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "knit-athletic-sneakers-gray",
-  "slug": "knit-athletic-sneakers-gray",
-  "name": "Knit Athletic Sneakers Gray",
-  "image": "images/products/knit-athletic-sneakers-gray.jpg",
-  "priceCents": 3490,
-  "category": "Footwear",
-  "rating": {
-   "stars": 3,
-   "count": 745
-  },
-  "stock": 10,
-  "gender": "Unisex",
-  "description": "Knit Athletic Sneakers Gray: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "men-athletic-shoes-white",
-  "slug": "men-athletic-shoes-white",
-  "name": "Men Athletic Shoes White",
-  "image": "images/products/men-athletic-shoes-white.jpg",
-  "priceCents": 3890,
-  "category": "Footwear",
-  "rating": {
-   "stars": 5,
-   "count": 249
-  },
-  "stock": 54,
-  "gender": "Men",
-  "description": "Men Athletic Shoes White: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "men-brown-flat-sneakers",
-  "slug": "men-brown-flat-sneakers",
-  "name": "Men Brown Flat Sneakers",
-  "image": "images/products/men-brown-flat-sneakers.jpg",
-  "priceCents": 1890,
-  "category": "Footwear",
-  "rating": {
-   "stars": 5,
-   "count": 909
-  },
-  "stock": 54,
-  "gender": "Men",
-  "description": "Men Brown Flat Sneakers: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "men-chino-pants-beige",
-  "slug": "men-chino-pants-beige",
-  "name": "Men Chino Pants Beige",
-  "image": "images/products/men-chino-pants-beige.jpg",
-  "priceCents": 8690,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4,
-   "count": 237
-  },
-  "stock": 42,
-  "gender": "Men",
-  "description": "Men Chino Pants Beige: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "men-cozy-fleece-hoodie-light-teal",
-  "slug": "men-cozy-fleece-hoodie-light-teal",
-  "name": "Men Cozy Fleece Hoodie Light Teal",
-  "image": "images/products/men-cozy-fleece-hoodie-light-teal.jpg",
-  "priceCents": 6490,
-  "category": "Clothing",
-  "rating": {
-   "stars": 3,
-   "count": 215
-  },
-  "stock": 20,
-  "gender": "Men",
-  "description": "Men Cozy Fleece Hoodie Light Teal: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "men-golf-polo-t-shirt-gray",
-  "slug": "men-golf-polo-t-shirt-gray",
-  "name": "Men Golf Polo T Shirt Gray",
-  "image": "images/products/men-golf-polo-t-shirt-gray.jpg",
-  "priceCents": 2690,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4,
-   "count": 477
-  },
-  "stock": 42,
-  "gender": "Men",
-  "description": "Men Golf Polo T Shirt Gray: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "men-navigator-sunglasses-black",
-  "slug": "men-navigator-sunglasses-black",
-  "name": "Men Navigator Sunglasses Black",
-  "image": "images/products/men-navigator-sunglasses-black.jpg",
-  "priceCents": 12990,
-  "category": "Accessories",
-  "rating": {
-   "stars": 3,
-   "count": 460
-  },
-  "stock": 25,
-  "gender": "Men",
-  "description": "Men Navigator Sunglasses Black: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "men-stretch-wool-sweater-black",
-  "slug": "men-stretch-wool-sweater-black",
-  "name": "Men Stretch Wool Sweater Black",
-  "image": "images/products/men-stretch-wool-sweater-black.jpg",
-  "priceCents": 1490,
-  "category": "Clothing",
-  "rating": {
-   "stars": 3,
-   "count": 325
-  },
-  "stock": 10,
-  "gender": "Men",
-  "description": "Men Stretch Wool Sweater Black: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "round-sunglasses-gold",
-  "slug": "round-sunglasses-gold",
-  "name": "Round Sunglasses Gold",
-  "image": "images/products/round-sunglasses-gold.jpg",
-  "priceCents": 11890,
-  "category": "Accessories",
-  "rating": {
-   "stars": 5,
-   "count": 849
-  },
-  "stock": 54,
-  "gender": "Unisex",
-  "description": "Round Sunglasses Gold: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "sky-leaf-branch-earrings",
-  "slug": "sky-leaf-branch-earrings",
-  "name": "Sky Leaf Branch Earrings",
-  "image": "images/products/sky-leaf-branch-earrings.jpg",
-  "priceCents": 6990,
-  "category": "Accessories",
-  "rating": {
-   "stars": 3,
-   "count": 280
-  },
-  "stock": 25,
-  "gender": "Unisex",
-  "description": "Sky Leaf Branch Earrings: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "straw-sunhat",
-  "slug": "straw-sunhat",
-  "name": "Straw Sunhat",
-  "image": "images/products/straw-sunhat.jpg",
-  "priceCents": 9390,
-  "category": "Accessories",
-  "rating": {
-   "stars": 5,
-   "count": 604
-  },
-  "stock": 49,
-  "gender": "Unisex",
-  "description": "Straw Sunhat: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "women-knit-ballet-flat-white",
-  "slug": "women-knit-ballet-flat-white",
-  "name": "Women Knit Ballet Flat White",
-  "image": "images/products/women-knit-ballet-flat-white.jpg",
-  "priceCents": 8090,
-  "category": "Footwear",
-  "rating": {
-   "stars": 3.5,
-   "count": 131
-  },
-  "stock": 56,
-  "gender": "Women",
-  "description": "Women Knit Ballet Flat White: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "women-knit-beanie-pom-pom-blue",
-  "slug": "women-knit-beanie-pom-pom-blue",
-  "name": "Women Knit Beanie Pom Pom Blue",
-  "image": "images/products/women-knit-beanie-pom-pom-blue.jpg",
-  "priceCents": 12990,
-  "category": "Accessories",
-  "rating": {
-   "stars": 3,
-   "count": 840
-  },
-  "stock": 45,
-  "gender": "Women",
-  "description": "Women Knit Beanie Pom Pom Blue: a popular pick in accessories. Free shipping on orders over $50."
- },
- {
-  "id": "women-plain-cotton-oversized-sweater-gray",
-  "slug": "women-plain-cotton-oversized-sweater-gray",
-  "name": "Women Plain Cotton Oversized Sweater Gray",
-  "image": "images/products/women-plain-cotton-oversized-sweater-gray.jpg",
-  "priceCents": 14790,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4.5,
-   "count": 358
-  },
-  "stock": 43,
-  "gender": "Women",
-  "description": "Women Plain Cotton Oversized Sweater Gray: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "women-relaxed-lounge-pants-pink",
-  "slug": "women-relaxed-lounge-pants-pink",
-  "name": "Women Relaxed Lounge Pants Pink",
-  "image": "images/products/women-relaxed-lounge-pants-pink.jpg",
-  "priceCents": 14790,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4.5,
-   "count": 678
-  },
-  "stock": 63,
-  "gender": "Women",
-  "description": "Women Relaxed Lounge Pants Pink: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "women-sandal-heels-white-pink",
-  "slug": "women-sandal-heels-white-pink",
-  "name": "Women Sandal Heels White Pink",
-  "image": "images/products/women-sandal-heels-white-pink.jpg",
-  "priceCents": 7390,
-  "category": "Footwear",
-  "rating": {
-   "stars": 5,
-   "count": 524
-  },
-  "stock": 29,
-  "gender": "Women",
-  "description": "Women Sandal Heels White Pink: a popular pick in footwear. Free shipping on orders over $50."
- },
- {
-  "id": "women-striped-beach-dress",
-  "slug": "women-striped-beach-dress",
-  "name": "Women Striped Beach Dress",
-  "image": "images/products/women-striped-beach-dress.jpg",
-  "priceCents": 6690,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4,
-   "count": 497
-  },
-  "stock": 62,
-  "gender": "Women",
-  "description": "Women Striped Beach Dress: a popular pick in clothing. Free shipping on orders over $50."
- },
- {
-  "id": "women-summer-jean-shorts",
-  "slug": "women-summer-jean-shorts",
-  "name": "Women Summer Jean Shorts",
-  "image": "images/products/women-summer-jean-shorts.jpg",
-  "priceCents": 6190,
-  "category": "Clothing",
-  "rating": {
-   "stars": 4,
-   "count": 52
-  },
-  "stock": 37,
-  "gender": "Women",
-  "description": "Women Summer Jean Shorts: a popular pick in clothing. Free shipping on orders over $50."
- }
+    {
+        "id": "adults-plain-cotton-tshirt-2-pack-teal",
+        "slug": "adults-plain-cotton-tshirt-2-pack-teal",
+        "name": "Adults Plain Cotton Tshirt 2 Pack Teal",
+        "image": "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+        "priceCents": 6990,
+        "category": "Clothing",
+        "rating": {
+            "stars": 3,
+            "count": 300
+        },
+        "stock": 45,
+        "gender": "Unisex",
+        "description": "Adults Plain Cotton Tshirt 2 Pack Teal: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "athletic-cotton-socks-6-pairs",
+        "slug": "athletic-cotton-socks-6-pairs",
+        "name": "Athletic Cotton Socks 6 Pairs",
+        "image": "images/products/athletic-cotton-socks-6-pairs.jpg",
+        "priceCents": 2990,
+        "category": "Clothing",
+        "rating": {
+            "stars": 3,
+            "count": 320
+        },
+        "stock": 5,
+        "gender": "Unisex",
+        "description": "Athletic Cotton Socks 6 Pairs: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "athletic-skateboard-shoes-gray",
+        "slug": "athletic-skateboard-shoes-gray",
+        "name": "Athletic Skateboard Shoes Gray",
+        "image": "images/products/athletic-skateboard-shoes-gray.jpg",
+        "priceCents": 8090,
+        "category": "Footwear",
+        "rating": {
+            "stars": 3.5,
+            "count": 451
+        },
+        "stock": 16,
+        "gender": "Unisex",
+        "description": "Athletic Skateboard Shoes Gray: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "crystal-zirconia-stud-earrings-pink",
+        "slug": "crystal-zirconia-stud-earrings-pink",
+        "name": "Crystal Zirconia Stud Earrings Pink",
+        "image": "images/products/crystal-zirconia-stud-earrings-pink.jpg",
+        "priceCents": 7090,
+        "category": "Accessories",
+        "rating": {
+            "stars": 3.5,
+            "count": 381
+        },
+        "stock": 6,
+        "gender": "Unisex",
+        "description": "Crystal Zirconia Stud Earrings Pink: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "knit-athletic-sneakers-gray",
+        "slug": "knit-athletic-sneakers-gray",
+        "name": "Knit Athletic Sneakers Gray",
+        "image": "images/products/knit-athletic-sneakers-gray.jpg",
+        "priceCents": 3490,
+        "category": "Footwear",
+        "rating": {
+            "stars": 3,
+            "count": 745
+        },
+        "stock": 10,
+        "gender": "Unisex",
+        "description": "Knit Athletic Sneakers Gray: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-athletic-shoes-white",
+        "slug": "men-athletic-shoes-white",
+        "name": "Men Athletic Shoes White",
+        "image": "images/products/men-athletic-shoes-white.jpg",
+        "priceCents": 3890,
+        "category": "Footwear",
+        "rating": {
+            "stars": 5,
+            "count": 249
+        },
+        "stock": 54,
+        "gender": "Men",
+        "description": "Men Athletic Shoes White: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-brown-flat-sneakers",
+        "slug": "men-brown-flat-sneakers",
+        "name": "Men Brown Flat Sneakers",
+        "image": "images/products/men-brown-flat-sneakers.jpg",
+        "priceCents": 1890,
+        "category": "Footwear",
+        "rating": {
+            "stars": 5,
+            "count": 909
+        },
+        "stock": 54,
+        "gender": "Men",
+        "description": "Men Brown Flat Sneakers: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-chino-pants-beige",
+        "slug": "men-chino-pants-beige",
+        "name": "Men Chino Pants Beige",
+        "image": "images/products/men-chino-pants-beige.jpg",
+        "priceCents": 8690,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4,
+            "count": 237
+        },
+        "stock": 42,
+        "gender": "Men",
+        "description": "Men Chino Pants Beige: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-cozy-fleece-hoodie-light-teal",
+        "slug": "men-cozy-fleece-hoodie-light-teal",
+        "name": "Men Cozy Fleece Hoodie Light Teal",
+        "image": "images/products/men-cozy-fleece-hoodie-light-teal.jpg",
+        "priceCents": 6490,
+        "category": "Clothing",
+        "rating": {
+            "stars": 3,
+            "count": 215
+        },
+        "stock": 20,
+        "gender": "Men",
+        "description": "Men Cozy Fleece Hoodie Light Teal: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-golf-polo-t-shirt-gray",
+        "slug": "men-golf-polo-t-shirt-gray",
+        "name": "Men Golf Polo T Shirt Gray",
+        "image": "images/products/men-golf-polo-t-shirt-gray.jpg",
+        "priceCents": 2690,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4,
+            "count": 477
+        },
+        "stock": 42,
+        "gender": "Men",
+        "description": "Men Golf Polo T Shirt Gray: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-navigator-sunglasses-black",
+        "slug": "men-navigator-sunglasses-black",
+        "name": "Men Navigator Sunglasses Black",
+        "image": "images/products/men-navigator-sunglasses-black.jpg",
+        "priceCents": 12990,
+        "category": "Accessories",
+        "rating": {
+            "stars": 3,
+            "count": 460
+        },
+        "stock": 25,
+        "gender": "Men",
+        "description": "Men Navigator Sunglasses Black: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "men-stretch-wool-sweater-black",
+        "slug": "men-stretch-wool-sweater-black",
+        "name": "Men Stretch Wool Sweater Black",
+        "image": "images/products/men-stretch-wool-sweater-black.jpg",
+        "priceCents": 1490,
+        "category": "Clothing",
+        "rating": {
+            "stars": 3,
+            "count": 325
+        },
+        "stock": 10,
+        "gender": "Men",
+        "description": "Men Stretch Wool Sweater Black: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "round-sunglasses-gold",
+        "slug": "round-sunglasses-gold",
+        "name": "Round Sunglasses Gold",
+        "image": "images/products/round-sunglasses-gold.jpg",
+        "priceCents": 11890,
+        "category": "Accessories",
+        "rating": {
+            "stars": 5,
+            "count": 849
+        },
+        "stock": 54,
+        "gender": "Unisex",
+        "description": "Round Sunglasses Gold: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "sky-leaf-branch-earrings",
+        "slug": "sky-leaf-branch-earrings",
+        "name": "Sky Leaf Branch Earrings",
+        "image": "images/products/sky-leaf-branch-earrings.jpg",
+        "priceCents": 6990,
+        "category": "Accessories",
+        "rating": {
+            "stars": 3,
+            "count": 280
+        },
+        "stock": 25,
+        "gender": "Unisex",
+        "description": "Sky Leaf Branch Earrings: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "straw-sunhat",
+        "slug": "straw-sunhat",
+        "name": "Straw Sunhat",
+        "image": "images/products/straw-sunhat.jpg",
+        "priceCents": 9390,
+        "category": "Accessories",
+        "rating": {
+            "stars": 5,
+            "count": 604
+        },
+        "stock": 49,
+        "gender": "Unisex",
+        "description": "Straw Sunhat: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-knit-ballet-flat-white",
+        "slug": "women-knit-ballet-flat-white",
+        "name": "Women Knit Ballet Flat White",
+        "image": "images/products/women-knit-ballet-flat-white.jpg",
+        "priceCents": 8090,
+        "category": "Footwear",
+        "rating": {
+            "stars": 3.5,
+            "count": 131
+        },
+        "stock": 56,
+        "gender": "Women",
+        "description": "Women Knit Ballet Flat White: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-knit-beanie-pom-pom-blue",
+        "slug": "women-knit-beanie-pom-pom-blue",
+        "name": "Women Knit Beanie Pom Pom Blue",
+        "image": "images/products/women-knit-beanie-pom-pom-blue.jpg",
+        "priceCents": 12990,
+        "category": "Accessories",
+        "rating": {
+            "stars": 3,
+            "count": 840
+        },
+        "stock": 45,
+        "gender": "Women",
+        "description": "Women Knit Beanie Pom Pom Blue: a popular pick in accessories. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-plain-cotton-oversized-sweater-gray",
+        "slug": "women-plain-cotton-oversized-sweater-gray",
+        "name": "Women Plain Cotton Oversized Sweater Gray",
+        "image": "images/products/women-plain-cotton-oversized-sweater-gray.jpg",
+        "priceCents": 14790,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4.5,
+            "count": 358
+        },
+        "stock": 43,
+        "gender": "Women",
+        "description": "Women Plain Cotton Oversized Sweater Gray: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-relaxed-lounge-pants-pink",
+        "slug": "women-relaxed-lounge-pants-pink",
+        "name": "Women Relaxed Lounge Pants Pink",
+        "image": "images/products/women-relaxed-lounge-pants-pink.jpg",
+        "priceCents": 14790,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4.5,
+            "count": 678
+        },
+        "stock": 63,
+        "gender": "Women",
+        "description": "Women Relaxed Lounge Pants Pink: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-sandal-heels-white-pink",
+        "slug": "women-sandal-heels-white-pink",
+        "name": "Women Sandal Heels White Pink",
+        "image": "images/products/women-sandal-heels-white-pink.jpg",
+        "priceCents": 7390,
+        "category": "Footwear",
+        "rating": {
+            "stars": 5,
+            "count": 524
+        },
+        "stock": 29,
+        "gender": "Women",
+        "description": "Women Sandal Heels White Pink: a popular pick in footwear. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-striped-beach-dress",
+        "slug": "women-striped-beach-dress",
+        "name": "Women Striped Beach Dress",
+        "image": "images/products/women-striped-beach-dress.jpg",
+        "priceCents": 6690,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4,
+            "count": 497
+        },
+        "stock": 62,
+        "gender": "Women",
+        "description": "Women Striped Beach Dress: a popular pick in clothing. Free shipping on orders over $50."
+    },
+    {
+        "id": "women-summer-jean-shorts",
+        "slug": "women-summer-jean-shorts",
+        "name": "Women Summer Jean Shorts",
+        "image": "images/products/women-summer-jean-shorts.jpg",
+        "priceCents": 6190,
+        "category": "Clothing",
+        "rating": {
+            "stars": 4,
+            "count": 52
+        },
+        "stock": 37,
+        "gender": "Women",
+        "description": "Women Summer Jean Shorts: a popular pick in clothing. Free shipping on orders over $50."
+    }
 ]
