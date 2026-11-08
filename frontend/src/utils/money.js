@@ -1,3 +1,4 @@
-export function formatMoney(amountCents){
-    return `$${(amountCents / 100).toFixed(2)}`
-}
+export const money = (cents) =>
+  `Rs. ${(cents / 100).toLocaleString('en-LK', { minimumFractionDigits: 2 })}`
+
+export const imageUrl = (product) => `/${product.image}`

@@ -1,49 +1,30 @@
-import './TrackingPage.css'
-export function TrackingPage() {
-    return (
-        <>
-            
-            <title>Tracking</title>
+import Section from '../components/ui/Section'
+import PageHeading from '../components/ui/PageHeading'
+import Button from '../components/ui/Button'
 
+const steps = ['Order placed', 'Preparing', 'On the way', 'Delivered']
 
-            <div className="tracking-page">
-                <div className="order-tracking">
-                    <a className="back-to-orders-link link-primary" href="/orders">
-                        View all orders
-                    </a>
-
-                    <div className="delivery-date">
-                        Arriving on Monday, June 13
-                    </div>
-
-                    <div className="product-info">
-                        Black and Gray Athletic Cotton Socks - 6 Pairs
-                    </div>
-
-                    <div className="product-info">
-                        Quantity: 1
-                    </div>
-
-                    <img className="product-image" src="/images/products/athletic-cotton-socks-6-pairs.jpg" />
-
-                    <div className="progress-labels-container">
-                        <div className="progress-label">
-                            Preparing
-                        </div>
-                        <div className="progress-label current-status">
-                            Shipped
-                        </div>
-                        <div className="progress-label">
-                            Delivered
-                        </div>
-                    </div>
-
-                    <div className="progress-bar-container">
-                        <div className="progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-
+export default function TrackingPage() {
+  return (
+    <Section>
+      <PageHeading eyebrow="ORDER TRACKING" title="Where is your order?" />
+      <div className="my-[30px] flex max-w-[600px]">
+        <input aria-label="Order number" placeholder="Enter order number" className="flex-1 border border-line p-3.5" />
+        <Button>Track</Button>
+      </div>
+      <ol className="max-w-[650px]">
+        {steps.map((step, i) => (
+          <li key={step} className="flex gap-[18px] border-b border-line py-[22px]">
+            <b className={`grid size-8 shrink-0 place-items-center rounded-full ${i === 0 ? 'bg-crimson text-white' : 'bg-[#eee]'}`}>{i === 0 ? '✓' : i + 1}</b>
+            <span>
+              <strong className="block">{step}</strong>
+              <small className="mt-1 block text-[11px] text-muted">
+                {i === 0 ? 'Your order has been received' : 'We will update you as your order moves.'}
+              </small>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </Section>
+  )
 }
